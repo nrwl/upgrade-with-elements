@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "cars": {
+      "root": "apps/cars/",
+      "sourceRoot": "apps/cars/src",
+      "projectType": "application",
+      "prefix": "upgrade-with-elements",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/cars",
+            "index": "apps/cars/src/index.html",
+            "main": "apps/cars/src/main.ts",
+            "polyfills": "apps/cars/src/polyfills.ts",
+            "tsConfig": "apps/cars/tsconfig.app.json",
+            "assets": [
+              "apps/cars/src/favicon.ico",
+              "apps/cars/src/assets",
+            ],
+            "styles": [
+              "apps/cars/src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/angular/angular.min.js",
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cars/src/environments/environment.ts",
+                  "with": "apps/cars/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cars:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cars:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cars:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/cars/src/test.ts",
+            "polyfills": "apps/cars/src/polyfills.ts",
+            "tsConfig": "apps/cars/tsconfig.spec.json",
+            "karmaConfig": "apps/cars/karma.conf.js",
+            "styles": [
+              "apps/cars/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/cars/src/favicon.ico",
+              "apps/cars/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/cars/tsconfig.app.json",
+              "apps/cars/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cars-e2e": {
+      "root": "apps/cars-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/cars-e2e/protractor.conf.js",
+            "devServerTarget": "cars:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cars:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/cars-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "car": {
+      "root": "libs/car",
+      "sourceRoot": "libs/car/src",
+      "projectType": "library",
+      "prefix": "upgrade-with-elements",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/car/src/test.ts",
+            "tsConfig": "libs/car/tsconfig.spec.json",
+            "karmaConfig": "libs/car/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/car/tsconfig.lib.json",
+              "libs/car/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "defaultProject": "cars"
+}

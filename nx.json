@@ -1,0 +1,21 @@
+{
+  "npmScope": "upgrade-with-elements",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "cars": {
+      "tags": []
+    },
+    "cars-e2e": {
+      "tags": []
+    },
+    "car": {
+      "tags": []
+    }
+  }
+}
