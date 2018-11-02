@@ -21,8 +21,7 @@
             "assets": [
               "apps/cars/src/favicon.ico",
               "apps/cars/src/assets",
-              "apps/cars/src/app.html",
-              "apps/cars/src/car.html"
+              "apps/cars/src/app.html"
             ],
             "styles": [
               "apps/cars/src/styles.css"

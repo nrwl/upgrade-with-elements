@@ -8,18 +8,4 @@
     templateUrl: './app.html'
   });
 
-  app.component('car',  {
-    bindings: {
-      name: '='
-    },
-    controller: function() {
-      this.status = '';
-      
-      this.buy = function() {
-        this.status = 'sold';
-      }
-    },
-    templateUrl: './car.html'
-  });
-
 })()
