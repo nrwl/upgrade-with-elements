@@ -21,12 +21,15 @@
             "assets": [
               "apps/cars/src/favicon.ico",
               "apps/cars/src/assets",
+              "apps/cars/src/app.html",
+              "apps/cars/src/car.html"
             ],
             "styles": [
               "apps/cars/src/styles.css"
             ],
             "scripts": [
               "node_modules/angular/angular.min.js",
+              "apps/cars/src/app.js"
             ]
           },
           "configurations": {
